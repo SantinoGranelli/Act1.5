@@ -31,9 +31,9 @@ namespace Act1._5
         {
           int i=0;
           Alumno alumno = null;
-          while (i<this.curso.Count && a.devolverDNI() != curso[i].devolverDNI())
+          while (i<this.curso.Count && DNI != curso[i].devolverDNI())
           {
-            i++
+            i++;
           }
           if (i < this.curso.Count)
           {
@@ -41,19 +41,39 @@ namespace Act1._5
           }
           return alumno;
         }
-        public bool agregarFalta (int DNI, double falta)
+        public void agregarFalta (int DNI, double falta)
         {
-            Alumno a = null;
-            a = buscarAlumno(DNI);
-            if (a != null)
+            if (this.buscarAlumno(DNI) != null)
             {
-              a.agregarFalta(falta);
+              int i = 0;
+              while (i<this.curso.Count && DNI != curso[i].devolverDNI()) 
+              {
+                i++;
+              }
+              this.curso[i].agregarFalta(falta);
             }
             else
             {
               System.Console.WriteLine("No se encontro el alumno");
             }
             
+        }
+        public void mostrarAlumnos () 
+        {
+          foreach (Alumno a in curso) 
+          {
+            a.mostrarDatos();
+          }
+        }
+        public void mostrarAlumnosLibres ()
+        {
+          foreach (Alumno a in curso)
+          {
+            if (a.devolverFaltas() >= 15)
+            {
+              a.mostrarDatos();
+            }
+          }
         }
     }
 }

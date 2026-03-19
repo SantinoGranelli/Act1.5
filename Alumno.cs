@@ -20,6 +20,10 @@ namespace Act1._5
         {
             return DNI;
         }
+        public double devolverFaltas ()
+        {
+            return cantidadFaltas;
+        }
         public double agregarFalta (double falta)
         {
           cantidadFaltas = cantidadFaltas + falta;
