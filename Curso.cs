@@ -8,9 +8,10 @@ namespace Act1._5
     public class Curso
     {
         private List <Alumno> curso;
+        private Dictionary <int,Alumno> dicAlumnos;
         public Curso ()
         {
-            this.curso = new List <Alumno> ();
+             this.dicAlumnos = new <Dictionary>();
         }
         public bool agregarAlumno(string nombre, int DNI)
         {
@@ -29,17 +30,8 @@ namespace Act1._5
         }
         public Alumno buscarAlumno (int DNI)
         {
-          int i=0;
-          Alumno alumno = null;
-          while (i<this.curso.Count && DNI != curso[i].devolverDNI())
-          {
-            i++;
-          }
-          if (i < this.curso.Count)
-          {
-            alumno = curso[i];
-          }
-          return alumno;
+          foreach(int )
+         
         }
         public void agregarFalta (int DNI, double falta)
         {
