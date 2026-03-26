@@ -33,5 +33,9 @@ namespace Act1._5
         {
             System.Console.WriteLine($"DNI: {DNI}, nombre {nombre}, faltas: {cantidadFaltas}");
         }
+        public double mostrarFaltas ()
+        {
+            return cantidadFaltas;
+        }
     }
 }

@@ -7,31 +7,22 @@ namespace Act1._5
 {
     public class Curso
     {
-        private List <Alumno> curso;
         private Dictionary <int,Alumno> dicAlumnos;
         public Curso ()
         {
-             this.dicAlumnos = new <Dictionary>();
+             this.dicAlumnos = new Dictionary<int, Alumno>();
         }
         public bool agregarAlumno(string nombre, int DNI)
         {
-            bool agregado = false;
-            Alumno a = new Alumno (DNI, nombre);
-            if (this.buscarAlumno(DNI)== null) 
-            {
-              curso.Add(a);
-              agregado = true;
-            }
-            else 
-            {
-                System.Console.WriteLine("El alumno ya existe");
-            }
-            return agregado;
+          if (dicAlumnos.ContainsKey(DNI)) return false;
+          Alumno a = new Alumno(DNI, nombre);
+          dicAlumnos.Add(DNI, a);
+          return true;
         }
         public Alumno buscarAlumno (int DNI)
         {
-          foreach(int )
-         
+          if (dicAlumnos.ContainsKey(DNI)) return dicAlumnos[DNI];
+          else return null;
         }
         public void agregarFalta (int DNI, double falta)
         {
@@ -49,6 +40,15 @@ namespace Act1._5
               System.Console.WriteLine("No se encontro el alumno");
             }
             
+        }
+        public Dictionary <int, Alumno> listarLibres ()
+        {
+          Dictionary<int, Alumno> alumnosLibres =new Dictionary<int,Alumno>();
+          foreach(int clave in dicAlumnos.Keys)
+          {
+            if (dicAlumnos[clave].mostrarFaltas()>15) alumnosLibres.Add()
+          }
+          return dicAlumnos;
         }
         public void mostrarAlumnos () 
         {
